@@ -1,0 +1,67 @@
+User-agent: *
+Allow: /
+Disallow: /bin/
+Disallow: /ImageRepository/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /TextControl/
+Disallow: /src/
+Disallow: /_next/
+Disallow: /images/
+
+
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /bin/
+Disallow: /ImageRepository/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /TextControl/
+Disallow: /src/
+Disallow: /_next/
+Disallow: /images/
+
+
+User-agent: Googlebot
+Allow: /
+Disallow: /bin/
+Disallow: /ImageRepository/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /TextControl/
+Disallow: /src/
+Disallow: /_next/
+Disallow: /images/
+
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /bin/
+Disallow: /ImageRepository/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /TextControl/
+Disallow: /src/
+Disallow: /_next/
+Disallow: /images/
+
+
+User-agent: SEOkicks-Robot
+Allow: /
+Disallow: /bin/
+Disallow: /ImageRepository/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /TextControl/
+Disallow: /src/
+Disallow: /_next/
+Disallow: /images/
+
+
+
+Sitemap: https://bahrain.texaschicken.com/sitemap.xml

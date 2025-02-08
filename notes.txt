@@ -1,0 +1,9 @@
+Test Link: https://olo-v7.vercel.app/
+
+اتكلم مع هبة في ال prices
+خد مثال /en/menu/Wraps/mexicana_wrap__meal
+
+المشكلة هنا ان ال menu card item بيتعرض فيه السعر بعد الخصم من غير سعر الزيادات
+
+
+--experimental-https

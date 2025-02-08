@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+	<title>halal</title>
+	<defs>
+		<image  width="32" height="14" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAOCAMAAAB5Au6AAAAAAXNSR0IB2cksfwAAAOdQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WquIsgAAAE10Uk5TAAEGCQoFABQeQhECTHMMURINVn4tlQttFT8QhHAWbyeTabe6ji99ZygPA0qYgiuRhmpuIkGZgyQcinhXS42PVESbpYiAegSJn1sIGRP51xrfAAAAtUlEQVR4nGNkQAaMQAAkfiELMaCqYGb+8xdVBIXHATTh23+cChi5gfKf+Rg//sOhQIiR8aMA438mRsbnWBVIAfX/ZmMEgzvYFKgyMt7UeCb99uuv3wxa17Ao0GZkvKz3hRdkwOMfn7AoMGFkvAEVN7+OTYEFUOtRMEtL6B02KxhN2RkZD/8DhqSM0gGs3rTgBIbCBXUuoGd3YVXAoMl73+ic8R1Vxm1YwwEI2P6rKDHeu4McWQC4ai8PrzYxdgAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		.s0 { fill: #2d2a26 } 
+	</style>
+	<path class="s0" d="m8 16.2c-4.5 0-8.1-3.6-8.1-8.1 0-4.5 3.6-8.1 8.1-8.1 4.5 0 8.1 3.6 8.1 8.1 0 4.5-3.6 8.1-8.1 8.1z"/>
+	<use  href="#img1" x="-8" y="1"/>
+</svg>
