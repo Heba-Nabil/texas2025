@@ -54,7 +54,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
 
   const [messages, countryResults, session] = await Promise.all([
     getMessages(),
-    getCountryData(locale, "Root Layout"),
+    getCountryData(locale),
     getSession(),
   ]);
 

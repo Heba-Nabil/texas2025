@@ -7,10 +7,7 @@ import { defaultLanguage } from "@/config";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const countryResponse = await getCountryData(
-    defaultLanguage,
-    "Application Reset",
-  );
+  const countryResponse = await getCountryData(defaultLanguage);
 
   const languages = countryResponse?.data?.Languages?.map((item) => item.Code);
 

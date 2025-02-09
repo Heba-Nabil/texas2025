@@ -26,7 +26,7 @@ export default async function DealsPage(props: DealsPageProps) {
   } = props;
 
   const [countryResponse, dealsResponse, t] = await Promise.all([
-    getCountryData(locale, "User Deals Page"),
+    getCountryData(locale),
     getUserDeals(locale),
     getTranslations(),
   ]);

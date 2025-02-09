@@ -54,7 +54,7 @@ export default async function LocationsPage(props: LocationsPageProps) {
 
   const [t, countryResponse] = await Promise.all([
     getTranslations(),
-    getCountryData(locale, "Locations Page"),
+    getCountryData(locale),
   ]);
 
   const countryData = countryResponse?.data;

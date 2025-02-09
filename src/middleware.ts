@@ -49,13 +49,13 @@ export default async function middleware(request: NextRequest) {
   // Function to get fbclid from the page URL
   function getFbclid() {
     const urlParams = request.nextUrl.searchParams;
-    return urlParams.get('fbclid') || "defaultFbclid"; 
+    return urlParams.get("fbclid") || "defaultFbclid";
   }
 
   function getSubdomainIndex() {
-    const hostname = request.nextUrl.hostname; 
-    const parts = hostname.split('.');
-  
+    const hostname = request.nextUrl.hostname;
+    const parts = hostname.split(".");
+
     if (parts.length === 2) {
       return 1; // example.com
     } else if (parts.length === 3) {
@@ -69,7 +69,7 @@ export default async function middleware(request: NextRequest) {
     const fbclid = getFbclid();
     const subdomainIndex = getSubdomainIndex();
     const creationTime = Date.now();
-  
+
     const sessionId = `fb.${subdomainIndex}.${creationTime}.${fbclid}`;
     return sessionId;
   }
@@ -95,7 +95,7 @@ export default async function middleware(request: NextRequest) {
     expires: new Date(Date.now() + sessionIdExpireTime),
   });
 
-  // const countryData = await getCountryData(defaultLanguage, "Middleware");
+  // const countryData = await getCountryData(defaultLanguage);
   const languageCodes = defaultLocales;
   // const languageCodes =
   //   countryData?.data?.Languages?.map((item) => item.Code) || [];

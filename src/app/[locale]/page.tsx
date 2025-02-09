@@ -23,10 +23,9 @@ export async function generateMetadata(
 }
 
 export default async function HomePage({ params: { locale } }: HomePageProps) {
-  const [t, homeBannersResponse, menuCategoriesResponse] = await Promise.all([
+  const [t, homeBannersResponse] = await Promise.all([
     getTranslations(),
     getHomeBanners(locale),
-    getMenuCategories(locale),
   ]);
 
   const resources: HomePageResources = {
@@ -81,15 +80,10 @@ export default async function HomePage({ params: { locale } }: HomePageProps) {
       ),
     );
 
-  const categoriesData = menuCategoriesResponse?.data
-    ? displayInOrder(menuCategoriesResponse?.data)
-    : [];
-
   return (
     <HomeView
       locale={locale}
       resources={resources}
-      categoriesData={categoriesData}
       bannerData={bannerData}
       bestSellerData={bestSellerData}
       worldOfTexasData={worldOfTexasData}

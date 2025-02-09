@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { redirect } from "@/navigation";
-import { getMenuCategories } from "@/server/services/menuService";
+// import { getMenuCategories } from "@/server/services/menuService";
 import { displayInOrder } from "@/utils";
+import { getCountryData } from "@/server/services/globalService";
 
 type MenuPageProps = {
   params: {
@@ -14,14 +15,24 @@ export default async function MenuPage(props: MenuPageProps) {
     params: { locale },
   } = props;
 
-  const categoriesResponse = await getMenuCategories(locale);
+  const countryRes = await getCountryData(locale);
 
-  if (!categoriesResponse?.data) return notFound();
+  const countryData = countryRes?.data;
 
-  const sortedCategories = displayInOrder(categoriesResponse?.data);
+  const categories = countryData?.Categories;
 
-  if (sortedCategories?.length > 0) {
-    return redirect(`/menu/${sortedCategories[0]?.NameUnique}`);
+  if (!categories) return notFound();
+
+  const categoriesInOrder = categories ? displayInOrder(categories) : [];
+
+  // const categoriesResponse = await getMenuCategories(locale);
+
+  // if (!categoriesResponse?.data) return notFound();
+
+  // const sortedCategories = displayInOrder(categoriesResponse?.data);
+
+  if (categoriesInOrder?.length > 0) {
+    return redirect(`/menu/${categoriesInOrder[0]?.NameUnique}`);
   } else {
     return notFound();
   }

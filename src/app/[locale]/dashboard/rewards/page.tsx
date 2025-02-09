@@ -31,7 +31,7 @@ export default async function DashboardRewardsPage(
   } = props;
 
   const [countryResponse, rewardsResponse, userStatus, t] = await Promise.all([
-    getCountryData(locale, "User Rewards page"),
+    getCountryData(locale),
     getUserLoyaltyDeals(locale),
     getUserLoyaltyStatus(locale),
     getTranslations(),

@@ -29,7 +29,6 @@ const DynamicAppsSection = dynamic(() => import("./apps/AppsSection"), {
 type HomeViewProps = {
   locale: string;
   resources: HomePageResources;
-  categoriesData: MenuCategoryProps[];
   bannerData: HomeBannerResponseProps[];
   bestSellerData: HomeBannerResponseProps[];
   featuredBannerData: HomeBannerResponseProps[];
@@ -40,7 +39,6 @@ export default function HomeView(props: HomeViewProps) {
   const {
     locale,
     resources,
-    categoriesData,
     bannerData,
     bestSellerData,
     worldOfTexasData,
@@ -55,16 +53,13 @@ export default function HomeView(props: HomeViewProps) {
 
       <div className="mb-3" />
 
-      {categoriesData?.length > 0 && (
-        <ExploreMenu
-          locale={locale}
-          resources={{
-            exploreMenuCategories: resources["exploreMenuCategories"],
-            viewAll: resources["viewAll"],
-          }}
-          data={categoriesData}
-        />
-      )}
+      <ExploreMenu
+        locale={locale}
+        resources={{
+          exploreMenuCategories: resources["exploreMenuCategories"],
+          viewAll: resources["viewAll"],
+        }}
+      />
 
       <div className="mb-8" />
 

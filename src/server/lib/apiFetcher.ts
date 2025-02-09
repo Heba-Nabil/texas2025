@@ -14,12 +14,12 @@ export default async function apiFetcher(url: string, config?: RequestInit) {
 
   try {
     const res = await fetch(`${API_BASE_URL}${url}`, fixedConfig);
-    if (
-      `${API_BASE_URL}${url}` ===
-      "https://TX-SB-Service.psdigital.me/API/Country"
-    ) {
-      console.log(`${API_BASE_URL}${url}`, "===Request===", fixedConfig, res);
-    }
+    // if (
+    //   `${API_BASE_URL}${url}` ===
+    //   "https://TX-SB-Service.psdigital.me/API/Country"
+    // ) {
+    //   console.log(`${API_BASE_URL}${url}`, "===Request===", fixedConfig, res);
+    // }
     const data = await res?.json();
     // console.log(`${API_BASE_URL}${url}`, "===Response===", data);
 

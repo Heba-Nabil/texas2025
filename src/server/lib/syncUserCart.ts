@@ -20,7 +20,7 @@ export async function syncUserCart(
     await transferCartService(locale, guestToken, userToken);
 
     const [countryData, cartResponse] = await Promise.all([
-      getCountryData(locale, "Sync User Cart"),
+      getCountryData(locale),
       getCartItems(locale, userToken),
     ]);
 

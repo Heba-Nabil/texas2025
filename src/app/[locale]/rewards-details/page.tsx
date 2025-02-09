@@ -57,7 +57,7 @@ export default async function RewardsDetailsPage(
     params: { locale },
   } = props;
 
-  const countryResponse = await getCountryData(locale, "Rewards Details Page");
+  const countryResponse = await getCountryData(locale);
   const countryEnableRewards =
     !!countryResponse?.data?.Data?.EnableLoyaltyProgram;
 

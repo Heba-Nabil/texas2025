@@ -1,3 +1,7 @@
+"use client";
+
+import { useData } from "@/providers/DataProvider";
+import { displayInOrder } from "@/utils";
 import SectionHeading from "../SectionHeading";
 import {
   Carousel,
@@ -6,8 +10,6 @@ import {
 } from "@/components/ui/carousel";
 import NextLink from "@/components/global/NextLink";
 import NextImage from "@/components/global/NextImage";
-// Types
-import { MenuCategoryProps } from "@/types/api";
 
 type ExploreMenuProps = {
   locale: string;
@@ -15,11 +17,16 @@ type ExploreMenuProps = {
     exploreMenuCategories: string;
     viewAll: string;
   };
-  data: MenuCategoryProps[];
 };
 
 export default function ExploreMenu(props: ExploreMenuProps) {
-  const { locale, resources, data } = props;
+  const { locale, resources } = props;
+
+  const { Categories } = useData();
+
+  const data = Categories ? displayInOrder(Categories) : [];
+
+  if (data?.length === 0) return null;
 
   return (
     <section className="w-full">

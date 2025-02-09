@@ -24,7 +24,7 @@ import { GenericResponse } from "@/types";
 export const getCountryMessages = async (): Promise<
   GenericResponse<CountryResourcesProps[]>
 > => {
-  console.log("Fetching country messages (not from cache)");
+  console.log("Country resources (not from cache)");
 
   const headers = {
     CountryID: process.env.COUNTRY_ID!,
@@ -75,29 +75,58 @@ export const getCountryMessages = async (): Promise<
 //   return data;
 // }
 
-export async function getCountryData(
+export const getCountryData = async (
   locale: string,
-  source: string,
-): Promise<GenericResponse<SingleCountryDataProps>> {
-  // console.log("Country data from", source);
+): Promise<GenericResponse<SingleCountryDataProps>> => {
+  console.log("Country data (not from cache)");
 
-  const commonHeaders = getCommonHeaders(locale);
+  const headers = {
+    CountryID: process.env.COUNTRY_ID!,
+    RequestSource: process.env.REQUEST_SOURCE!,
+    Version: process.env.API_VERSION!,
+    LanguageCode: locale,
+  };
 
-  const data = await apiFetcher(apiEndpoints.countrySingle, {
-    headers: {
-      ...commonHeaders,
-    },
+  const response = await fetch(`${process.env.BASE_URL}/Country`, {
+    headers,
     cache: "force-cache",
     next: {
       tags: [`${locale}_country_data`],
     },
   });
 
+  const responseJson = await response?.json();
+
+  const data = successResponse(
+    responseJson[apiResponseKeys?.responseCode],
+    responseJson[apiResponseKeys?.results],
+  );
+
   return data;
-}
+};
+// export async function getCountryData(
+//   locale: string,
+//   source: string,
+// ): Promise<GenericResponse<SingleCountryDataProps>> {
+//   // console.log("Country data from", source);
+
+//   const commonHeaders = getCommonHeaders(locale);
+
+//   const data = await apiFetcher(apiEndpoints.countrySingle, {
+//     headers: {
+//       ...commonHeaders,
+//     },
+//     cache: "force-cache",
+//     next: {
+//       tags: [`${locale}_country_data`],
+//     },
+//   });
+
+//   return data;
+// }
 
 export async function getCountryLocales(locale: string) {
-  const countryData = await getCountryData(locale, "I18n");
+  const countryData = await getCountryData(locale);
 
   if (!countryData || countryData?.hasError)
     throw new Error("Something went wrong while fetching country Data");
